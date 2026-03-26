@@ -1,0 +1,363 @@
+[gd_scene format=3 uid="uid://wqmls1nck74g"]
+
+[ext_resource type="Texture2D" uid="uid://dxcqqsdpt43xa" path="res://textures/kitty twitch/71a9a7f6-3c25-43e8-8f5b-a5842089e7d5sf.png" id="1_uftv6"]
+[ext_resource type="Texture2D" uid="uid://r5eg1r3xktiv" path="res://textures/kitty twitch/4.png" id="2_f7jhr"]
+[ext_resource type="Texture2D" uid="uid://h06vcyf0dc4s" path="res://textures/kitty twitch/71a9a7f6-3c25-43e8-8f5b-a5842089e7d5.png" id="3_b83iy"]
+[ext_resource type="Texture2D" uid="uid://dtq2hxpugkg8s" path="res://textures/kitty twitch/71a9a7f6-3c25-43e8-8f5b-a5842089e7d51.png" id="4_po5vb"]
+[ext_resource type="Texture2D" uid="uid://oxu41adb7wrf" path="res://textures/kitty twitch/71a9a7f6-3c25-43e8-8f5b-a5842089e7d52.png" id="5_frugb"]
+[ext_resource type="Texture2D" uid="uid://crg4cxmve1hmu" path="res://textures/kitty twitch/71a9a7f6-3c25-43e8-8f5b-a5842089e7d53.png" id="6_w0nvr"]
+[ext_resource type="Texture2D" uid="uid://n1vuvj8n8ouk" path="res://textures/kitty twitch/71a9a7f6-3c25-43e8-8f5b-a5842089e7d555.png" id="7_78sai"]
+[ext_resource type="Script" uid="uid://b5rvs6mhjhre8" path="res://scripts/george_twitch.gd" id="8_67nbk"]
+[ext_resource type="Shader" uid="uid://doru1ltf8i275" path="res://shaders/removeblack.gdshader" id="9_2mtoi"]
+[ext_resource type="Texture2D" uid="uid://dybt5rpq87bvg" path="res://textures/static/12.png" id="9_7ueec"]
+[ext_resource type="Texture2D" uid="uid://chrm4o2xrthgi" path="res://textures/static/13.png" id="10_2mtoi"]
+[ext_resource type="Texture2D" uid="uid://yciepx3yysln" path="res://textures/static/14.png" id="11_h4c81"]
+[ext_resource type="Texture2D" uid="uid://fql7n71uigjl" path="res://textures/static/15.png" id="12_01k44"]
+[ext_resource type="Texture2D" uid="uid://bandw114bx5a6" path="res://textures/static/16.png" id="13_ynqpd"]
+[ext_resource type="Texture2D" uid="uid://dbnvwq8afq10l" path="res://textures/static/17.png" id="14_oyroy"]
+[ext_resource type="Texture2D" uid="uid://p31toudbcr4w" path="res://textures/static/18.png" id="15_h34e7"]
+[ext_resource type="Texture2D" uid="uid://dgbrraqdah8gw" path="res://textures/static/20.png" id="16_ukkme"]
+[ext_resource type="Texture2D" uid="uid://c2oy8pd80jsfu" path="res://textures/static/21.png" id="18_nstin"]
+[ext_resource type="Texture2D" uid="uid://dxpmav2vqeq1h" path="res://textures/static/22.png" id="19_m6auj"]
+[ext_resource type="Texture2D" uid="uid://br42qxjss22g8" path="res://textures/static/430.png" id="20_4l1ud"]
+[ext_resource type="Texture2D" uid="uid://beoltkmq2xssq" path="res://textures/static/434.png" id="21_2p1hy"]
+[ext_resource type="Texture2D" uid="uid://djrpu83htn3ap" path="res://textures/static/435.png" id="22_xvydc"]
+[ext_resource type="Texture2D" uid="uid://ducslt6wkab2t" path="res://textures/static/436.png" id="23_3csos"]
+[ext_resource type="Texture2D" uid="uid://cwbd0y7smyp2o" path="res://textures/static/437.png" id="24_5n3y1"]
+[ext_resource type="Texture2D" uid="uid://jf3sryr7g0qe" path="res://textures/static/438.png" id="25_udwf2"]
+[ext_resource type="Texture2D" uid="uid://cklwbnu2k74t" path="res://textures/static/439.png" id="26_7fa8w"]
+[ext_resource type="Script" uid="uid://c3mhhke2getr1" path="res://scripts/dividedstatic.gd" id="27_k2urm"]
+[ext_resource type="FontFile" uid="uid://dp8s8why1dwkv" path="res://fonts/SyneMono-Regular.ttf" id="28_m6auj"]
+[ext_resource type="Script" uid="uid://1f6eowdjwqoe" path="res://scripts/menubtn.gd" id="29_4l1ud"]
+[ext_resource type="AudioStream" uid="uid://ctjlcyyiw8brm" path="res://audio/darknessDrone.wav" id="30_2p1hy"]
+[ext_resource type="AudioStream" uid="uid://dsg0qfge7h4if" path="res://audio/buttonsound.wav" id="30_3csos"]
+[ext_resource type="Texture2D" uid="uid://ctmojfmy62362" path="res://textures/text/text.png" id="31_5n3y1"]
+[ext_resource type="AudioStream" uid="uid://b2idkloe0uugj" path="res://audio/whitenoise_static.wav" id="31_xvydc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rj0y0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uftv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_f7jhr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b83iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_po5vb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_frugb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w0nvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_78sai")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h4c81"]
+shader = ExtResource("9_2mtoi")
+shader_parameter/threshold = 0.355
+shader_parameter/alpha = 0.4
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cl5v0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_7ueec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2mtoi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_h4c81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_01k44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ynqpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_oyroy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_h34e7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ukkme")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wvmws"]
+shader = ExtResource("9_2mtoi")
+shader_parameter/threshold = 0.6
+shader_parameter/alpha = 0.2
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_luxof"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_nstin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_m6auj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_4l1ud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_2p1hy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_xvydc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_3csos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_5n3y1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_udwf2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_7fa8w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_nstin"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m6auj"]
+gradient = SubResource("Gradient_nstin")
+
+[sub_resource type="Animation" id="Animation_4l1ud"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(635.50006, -19.5)]
+}
+
+[sub_resource type="Animation" id="Animation_2p1hy"]
+resource_name = "scan"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(636, -36), Vector2(636, 763)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xvydc"]
+_data = {
+&"RESET": SubResource("Animation_4l1ud"),
+&"scan": SubResource("Animation_2p1hy")
+}
+
+[sub_resource type="Animation" id="Animation_udwf2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7fa8w"]
+resource_name = "show_text"
+length = 5.9666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 1.9666667, 4.8, 5.9666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k2urm"]
+_data = {
+&"RESET": SubResource("Animation_udwf2"),
+&"show_text": SubResource("Animation_7fa8w")
+}
+
+[node name="title" type="Node2D" unique_id=1240220195]
+
+[node name="background" type="CanvasLayer" parent="." unique_id=146355038]
+layer = -128
+
+[node name="ColorRect" type="ColorRect" parent="background" unique_id=333943710]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="george" type="AnimatedSprite2D" parent="." unique_id=764763830]
+sprite_frames = SubResource("SpriteFrames_rj0y0")
+centered = false
+script = ExtResource("8_67nbk")
+
+[node name="rest" type="Timer" parent="george" unique_id=1299004291]
+one_shot = true
+
+[node name="twitch" type="Timer" parent="george" unique_id=1814388794]
+one_shot = true
+
+[node name="fade" type="Timer" parent="george" unique_id=1513757936]
+wait_time = 0.3
+autostart = true
+
+[node name="Static" type="AnimatedSprite2D" parent="." unique_id=366062900]
+material = SubResource("ShaderMaterial_h4c81")
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_cl5v0")
+autoplay = "default"
+frame_progress = 0.891757
+centered = false
+
+[node name="dividedstatic" type="AnimatedSprite2D" parent="." unique_id=1978691838]
+material = SubResource("ShaderMaterial_wvmws")
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_luxof")
+autoplay = "default"
+frame_progress = 0.030912273
+centered = false
+script = ExtResource("27_k2urm")
+
+[node name="rest" type="Timer" parent="dividedstatic" unique_id=1096408362]
+one_shot = true
+
+[node name="twitch" type="Timer" parent="dividedstatic" unique_id=1194662136]
+one_shot = true
+
+[node name="scanline" type="Sprite2D" parent="." unique_id=781757693]
+modulate = Color(1, 1, 1, 0.11764706)
+position = Vector2(635.50006, -19.5)
+scale = Vector2(20.546877, 0.453125)
+texture = SubResource("GradientTexture2D_m6auj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="scanline" unique_id=1893997476]
+libraries/ = SubResource("AnimationLibrary_xvydc")
+autoplay = &"scan"
+
+[node name="gui" type="CanvasLayer" parent="." unique_id=577452455]
+
+[node name="Label2" type="Label" parent="gui" unique_id=1934348365]
+offset_left = 212.0
+offset_top = 61.0
+offset_right = 322.0
+offset_bottom = 123.0
+theme_override_colors/font_color = Color(0.9685872, 5.679429e-06, 7.70092e-07, 1)
+theme_override_fonts/font = ExtResource("28_m6auj")
+theme_override_font_sizes/font_size = 50
+text = "Meow"
+
+[node name="Label" type="Label" parent="gui" unique_id=1687597237]
+offset_left = 212.0
+offset_top = 61.0
+offset_right = 461.0
+offset_bottom = 122.0
+theme_override_fonts/font = ExtResource("28_m6auj")
+theme_override_font_sizes/font_size = 50
+text = "    sacre"
+
+[node name="newgame" type="Label" parent="gui" unique_id=765059757]
+texture_filter = 1
+offset_left = 212.0
+offset_top = 303.0
+offset_right = 461.0
+offset_bottom = 428.0
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("28_m6auj")
+theme_override_font_sizes/font_size = 50
+text = "New Game
+"
+script = ExtResource("29_4l1ud")
+
+[node name="continue" type="Label" parent="gui" unique_id=933147970]
+offset_left = 212.0
+offset_top = 371.0
+offset_right = 461.0
+offset_bottom = 496.0
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("28_m6auj")
+theme_override_font_sizes/font_size = 50
+text = "Continue
+"
+script = ExtResource("29_4l1ud")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="gui" unique_id=381954550]
+process_mode = 3
+stream = ExtResource("30_3csos")
+
+[node name="text" type="TextureRect" parent="gui" unique_id=1649306711]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -360.0
+offset_right = 1280.0
+offset_bottom = 360.0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("31_5n3y1")
+
+[node name="animation" type="AnimationPlayer" parent="gui/text" unique_id=782295187]
+process_mode = 3
+libraries/ = SubResource("AnimationLibrary_k2urm")
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=1110937149]
+process_mode = 3
+stream = ExtResource("30_2p1hy")
+volume_db = 6.565
+autoplay = true
+
+[node name="staticSound" type="AudioStreamPlayer2D" parent="." unique_id=1311328578]
+process_mode = 3
+stream = ExtResource("31_xvydc")
+volume_db = -2.96
+autoplay = true

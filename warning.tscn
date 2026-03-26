@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://dp41320uv3do1"]
+
+[ext_resource type="FontFile" uid="uid://dp8s8why1dwkv" path="res://fonts/SyneMono-Regular.ttf" id="1_jupec"]
+[ext_resource type="Script" uid="uid://pvgo4fqxwiy7" path="res://scripts/warning.gd" id="2_8hufe"]
+
+[sub_resource type="Animation" id="Animation_0b8um"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jupec"]
+resource_name = "fade_in"
+length = 2.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q1tw2"]
+resource_name = "fade_out"
+length = 2.1333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.0666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_peogu"]
+_data = {
+&"RESET": SubResource("Animation_0b8um"),
+&"fade_in": SubResource("Animation_jupec"),
+&"fade_out": SubResource("Animation_q1tw2")
+}
+
+[node name="Warning" type="Control" unique_id=1980612178]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=881426291]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=137637324]
+z_index = -1
+offset_left = -29.0
+offset_top = -24.0
+offset_right = 1305.0
+offset_bottom = 760.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=690640941]
+z_index = 1
+offset_left = -21.0
+offset_top = -31.0
+offset_right = 1302.0
+offset_bottom = 758.0
+theme_override_fonts/font = ExtResource("1_jupec")
+theme_override_font_sizes/font_size = 35
+text = "Warning!
+This game contains flashing lights
+and jumpscares!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_8hufe")
+metadata/_edit_use_anchors_ = true
+
+[node name="animation" type="AnimationPlayer" parent="CanvasLayer/Label" unique_id=1759269956]
+libraries/ = SubResource("AnimationLibrary_peogu")
+
+[node name="timer" type="Timer" parent="CanvasLayer/Label" unique_id=441037547]

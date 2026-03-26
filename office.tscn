@@ -1,0 +1,263 @@
+[gd_scene format=3 uid="uid://bijr3unneddex"]
+
+[ext_resource type="Texture2D" uid="uid://3p8wkgfwcpb0" path="res://textures/rooms/office0.png" id="1_43ocd"]
+[ext_resource type="Script" uid="uid://472qauf4u4s3" path="res://scripts/camera.gd" id="3_lcnwv"]
+[ext_resource type="Texture2D" uid="uid://4gjq6wv270nk" path="res://textures/button.png" id="4_4i814"]
+[ext_resource type="Texture2D" uid="uid://cmm4fttnm0mv6" path="res://textures/rooms/cam1.png" id="5_s0aar"]
+[ext_resource type="Texture2D" uid="uid://cnnd73k6a2ajn" path="res://textures/rooms/cam2.png" id="6_gxl1f"]
+[ext_resource type="Texture2D" uid="uid://bh2sb1lvvpvns" path="res://textures/rooms/cam3.png" id="7_2uxut"]
+[ext_resource type="Script" uid="uid://cxrlmpsrb75rt" path="res://cameraview.gd" id="8_25m5p"]
+[ext_resource type="Texture2D" uid="uid://b1ebcqlf52sod" path="res://textures/rooms/cam4.jpg" id="8_n1y4y"]
+[ext_resource type="Texture2D" uid="uid://wnyt8jm4b5ee" path="res://textures/gui/6db8b09e-e760-4bb3-8f74-63b825c49e2a.png" id="9_m8tx5"]
+[ext_resource type="Texture2D" uid="uid://cf2nfohc8bjlu" path="res://textures/gui/cam1btn.png" id="10_4hetp"]
+[ext_resource type="Texture2D" uid="uid://dsumfnstras8c" path="res://textures/gui/cam2btn.png" id="11_o3cd7"]
+[ext_resource type="Texture2D" uid="uid://b4hh03lylp5xa" path="res://textures/rooms/room2.png" id="12_8qan1"]
+[ext_resource type="Shader" uid="uid://doru1ltf8i275" path="res://shaders/removeblack.gdshader" id="13_25m5p"]
+[ext_resource type="Texture2D" uid="uid://bv8bycfvuf2jm" path="res://textures/rooms/room1.png" id="13_jktts"]
+[ext_resource type="Texture2D" uid="uid://dybt5rpq87bvg" path="res://textures/static/12.png" id="14_ga26y"]
+[ext_resource type="Texture2D" uid="uid://chrm4o2xrthgi" path="res://textures/static/13.png" id="15_2k2f6"]
+[ext_resource type="Texture2D" uid="uid://yciepx3yysln" path="res://textures/static/14.png" id="16_hs4kw"]
+[ext_resource type="Texture2D" uid="uid://fql7n71uigjl" path="res://textures/static/15.png" id="17_bm8iy"]
+[ext_resource type="Texture2D" uid="uid://bandw114bx5a6" path="res://textures/static/16.png" id="18_2uru3"]
+[ext_resource type="Texture2D" uid="uid://dbnvwq8afq10l" path="res://textures/static/17.png" id="19_ekubs"]
+[ext_resource type="Texture2D" uid="uid://p31toudbcr4w" path="res://textures/static/18.png" id="20_hblr6"]
+[ext_resource type="Texture2D" uid="uid://dgbrraqdah8gw" path="res://textures/static/20.png" id="21_46so7"]
+[ext_resource type="Texture2D" uid="uid://cawp85g1s82a1" path="res://textures/static/25.png" id="23_46so7"]
+[ext_resource type="Texture2D" uid="uid://br42qxjss22g8" path="res://textures/static/430.png" id="24_bveom"]
+[ext_resource type="Texture2D" uid="uid://cwbd0y7smyp2o" path="res://textures/static/437.png" id="26_nl0r1"]
+[ext_resource type="Texture2D" uid="uid://jf3sryr7g0qe" path="res://textures/static/438.png" id="27_26ul0"]
+[ext_resource type="AudioStream" uid="uid://c2yxlflhdbfim" path="res://audio/shortGlitch.wav" id="29_cu40l"]
+[ext_resource type="AudioStream" uid="uid://ctjlcyyiw8brm" path="res://audio/darknessDrone.wav" id="30_qt548"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wruqr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_43ocd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25m5p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_s0aar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gxl1f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2uxut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_n1y4y")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ga26y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_8qan1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jktts")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bveom"]
+shader = ExtResource("13_25m5p")
+shader_parameter/threshold = 0.355
+shader_parameter/alpha = 0.4
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6jtqa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_ga26y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_2k2f6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hs4kw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_bm8iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2uru3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ekubs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_hblr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_46so7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5c3wu"]
+shader = ExtResource("13_25m5p")
+shader_parameter/threshold = 0.1
+shader_parameter/alpha = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g68bc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_46so7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_bveom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_nl0r1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_26ul0")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_46so7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_bveom")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="Office" type="Node2D" unique_id=2096332971]
+
+[node name="office" type="AnimatedSprite2D" parent="." unique_id=1422493307]
+sprite_frames = SubResource("SpriteFrames_wruqr")
+centered = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1229433428]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1012613674]
+z_index = 1
+offset_left = 4.0
+offset_top = 638.0
+offset_right = 1279.0
+offset_bottom = 716.0
+mouse_filter = 0
+theme_override_font_sizes/font_size = 53
+text = "^"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_lcnwv")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Label" unique_id=971501087]
+modulate = Color(1, 1, 1, 0.18431373)
+layout_mode = 0
+offset_left = -6.0
+offset_top = -341.0
+offset_right = 1296.0
+offset_bottom = 373.0
+mouse_filter = 2
+texture = ExtResource("4_4i814")
+expand_mode = 1
+
+[node name="camera" type="AnimatedSprite2D" parent="." unique_id=1038087637]
+sprite_frames = SubResource("SpriteFrames_25m5p")
+centered = false
+script = ExtResource("8_25m5p")
+
+[node name="ColorRect" type="ColorRect" parent="camera" unique_id=1556095644]
+visible = false
+modulate = Color(1, 1, 1, 0.23529412)
+z_index = 2
+offset_left = 915.0
+offset_top = 278.0
+offset_right = 1231.0
+offset_bottom = 608.0
+mouse_filter = 2
+
+[node name="camMap" type="TextureRect" parent="camera" unique_id=650463006]
+visible = false
+z_index = 2
+offset_left = -156.0
+offset_top = -308.0
+offset_right = 1242.0
+offset_bottom = 605.0
+mouse_filter = 2
+texture = ExtResource("9_m8tx5")
+
+[node name="cam1btn" type="TextureRect" parent="camera" unique_id=965297771]
+visible = false
+z_index = 2
+offset_left = 1120.0
+offset_top = 400.0
+offset_right = 1197.0
+offset_bottom = 465.0
+mouse_filter = 0
+texture = ExtResource("10_4hetp")
+
+[node name="cam2btn" type="TextureRect" parent="camera" unique_id=79453578]
+visible = false
+z_index = 2
+offset_left = 1025.0
+offset_top = 317.0
+offset_right = 1102.0
+offset_bottom = 382.0
+mouse_filter = 0
+texture = ExtResource("11_o3cd7")
+
+[node name="roomSelect" type="AnimatedSprite2D" parent="camera" unique_id=1491464295]
+visible = false
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_ga26y")
+centered = false
+
+[node name="Static" type="AnimatedSprite2D" parent="camera" unique_id=1514034577]
+visible = false
+z_index = 2
+material = SubResource("ShaderMaterial_bveom")
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_6jtqa")
+autoplay = "default"
+frame_progress = 0.13638778
+centered = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="camera" unique_id=1496658370]
+z_index = 2
+material = SubResource("ShaderMaterial_5c3wu")
+position = Vector2(-2, -1)
+sprite_frames = SubResource("SpriteFrames_g68bc")
+autoplay = "default"
+frame = 7
+centered = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="camera" unique_id=2109613305]
+process_mode = 3
+position = Vector2(29, 24)
+stream = ExtResource("29_cu40l")
+volume_db = -9.242
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=1631957415]
+process_mode = 3
+stream = ExtResource("30_qt548")
+volume_db = -1.354
+autoplay = true
