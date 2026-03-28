@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bijr3unneddex"]
 
 [ext_resource type="Texture2D" uid="uid://3p8wkgfwcpb0" path="res://textures/rooms/office0.png" id="1_43ocd"]
+[ext_resource type="Script" uid="uid://c33tp7qo3my4" path="res://officeLoop.gd" id="1_hblr6"]
 [ext_resource type="Script" uid="uid://472qauf4u4s3" path="res://scripts/camera.gd" id="3_lcnwv"]
 [ext_resource type="Texture2D" uid="uid://4gjq6wv270nk" path="res://textures/button.png" id="4_4i814"]
 [ext_resource type="Texture2D" uid="uid://cmm4fttnm0mv6" path="res://textures/rooms/cam1.png" id="5_s0aar"]
@@ -26,8 +27,14 @@
 [ext_resource type="Texture2D" uid="uid://br42qxjss22g8" path="res://textures/static/430.png" id="24_bveom"]
 [ext_resource type="Texture2D" uid="uid://cwbd0y7smyp2o" path="res://textures/static/437.png" id="26_nl0r1"]
 [ext_resource type="Texture2D" uid="uid://jf3sryr7g0qe" path="res://textures/static/438.png" id="27_26ul0"]
+[ext_resource type="AudioStream" uid="uid://8h280nelkl5q" path="res://audio/ambienceLoop.wav" id="29_46so7"]
 [ext_resource type="AudioStream" uid="uid://c2yxlflhdbfim" path="res://audio/shortGlitch.wav" id="29_cu40l"]
-[ext_resource type="AudioStream" uid="uid://ctjlcyyiw8brm" path="res://audio/darknessDrone.wav" id="30_qt548"]
+[ext_resource type="Texture2D" uid="uid://due4i85mqggde" path="res://textures/george/6db8b09e-e760-4bb3-8f74-63b825c49e2a-2.png" id="30_5bs7n"]
+[ext_resource type="Texture2D" uid="uid://clc482evd3ntv" path="res://textures/george/6db8b09e-e760-4bb3-8f74-63b825c49e2a.png" id="31_cu40l"]
+[ext_resource type="Texture2D" uid="uid://ms6sg8if7qva" path="res://textures/george/6db8b09e-e760-4bb3-8f74-63b825c49e2a-3.png" id="32_qt548"]
+[ext_resource type="Texture2D" uid="uid://w0tsv83i1rfs" path="res://textures/george/a6be390a-d5a9-4789-9fe7-552aad832622-2.png" id="33_5c3wu"]
+[ext_resource type="Texture2D" uid="uid://btdsmyjxpftoq" path="res://textures/george/a6be390a-d5a9-4789-9fe7-552aad832622.png" id="34_g68bc"]
+[ext_resource type="Script" uid="uid://b0qmhevd4odf" path="res://scripts/georgeLogic.gd" id="35_jtogi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wruqr"]
 animations = [{
@@ -148,7 +155,31 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_1g0dp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_5bs7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_cu40l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_qt548")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_5c3wu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_g68bc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Office" type="Node2D" unique_id=2096332971]
+script = ExtResource("1_hblr6")
 
 [node name="office" type="AnimatedSprite2D" parent="." unique_id=1422493307]
 sprite_frames = SubResource("SpriteFrames_wruqr")
@@ -186,7 +217,6 @@ centered = false
 script = ExtResource("8_25m5p")
 
 [node name="ColorRect" type="ColorRect" parent="camera" unique_id=1556095644]
-visible = false
 modulate = Color(1, 1, 1, 0.23529412)
 z_index = 2
 offset_left = 915.0
@@ -196,7 +226,6 @@ offset_bottom = 608.0
 mouse_filter = 2
 
 [node name="camMap" type="TextureRect" parent="camera" unique_id=650463006]
-visible = false
 z_index = 2
 offset_left = -156.0
 offset_top = -308.0
@@ -206,7 +235,6 @@ mouse_filter = 2
 texture = ExtResource("9_m8tx5")
 
 [node name="cam1btn" type="TextureRect" parent="camera" unique_id=965297771]
-visible = false
 z_index = 2
 offset_left = 1120.0
 offset_top = 400.0
@@ -216,7 +244,6 @@ mouse_filter = 0
 texture = ExtResource("10_4hetp")
 
 [node name="cam2btn" type="TextureRect" parent="camera" unique_id=79453578]
-visible = false
 z_index = 2
 offset_left = 1025.0
 offset_top = 317.0
@@ -226,14 +253,13 @@ mouse_filter = 0
 texture = ExtResource("11_o3cd7")
 
 [node name="roomSelect" type="AnimatedSprite2D" parent="camera" unique_id=1491464295]
-visible = false
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_ga26y")
+frame = 1
 centered = false
 
 [node name="Static" type="AnimatedSprite2D" parent="camera" unique_id=1514034577]
-visible = false
-z_index = 2
+z_index = 5
 material = SubResource("ShaderMaterial_bveom")
 position = Vector2(-2, 0)
 sprite_frames = SubResource("SpriteFrames_6jtqa")
@@ -254,10 +280,31 @@ centered = false
 process_mode = 3
 position = Vector2(29, 24)
 stream = ExtResource("29_cu40l")
-volume_db = -9.242
+volume_db = -17.391
+pitch_scale = 1.05
 
 [node name="music" type="AudioStreamPlayer2D" parent="." unique_id=1631957415]
 process_mode = 3
-stream = ExtResource("30_qt548")
+stream = ExtResource("29_46so7")
 volume_db = -1.354
 autoplay = true
+
+[node name="George" type="AnimatedSprite2D" parent="." unique_id=546064090]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_1g0dp")
+frame = 4
+centered = false
+script = ExtResource("35_jtogi")
+
+[node name="georgeTimer" type="Timer" parent="George" unique_id=1600202999]
+wait_time = 4.0
+autostart = true
+
+[node name="TBA" type="AnimatedSprite2D" parent="." unique_id=1865092125]
+visible = false
+
+[node name="TBA2" type="AnimatedSprite2D" parent="." unique_id=80077738]
+visible = false
+
+[node name="TBA3" type="AnimatedSprite2D" parent="." unique_id=934631238]
+visible = false
