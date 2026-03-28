@@ -7,13 +7,17 @@ var cameras_open: bool = false
 @onready var static_sprite = camera.get_node("Static")
 @onready var anim_sprite = camera.get_node("AnimatedSprite2D")
 @onready var audio_player = camera.get_node("AudioStreamPlayer2D")
+@onready var Office = $"../.."
 @onready var ui_nodes = [
 	camera.get_node("roomSelect"),
 	camera.get_node("ColorRect"),
 	camera.get_node("camMap"),
 	camera.get_node("cam1btn"),
-	camera.get_node("cam2btn")
+	camera.get_node("cam2btn"),
+	Office.get_node("George")
+	
 ]
+
 
 func _ready() -> void:
 	# connect signals properly

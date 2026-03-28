@@ -9,9 +9,8 @@ func _ready() -> void:
 	$AnimatedSprite2D.animation_finished.connect(func(): $roomSelect.frame = targetFrame)
 
 func switchRoom(roomFrame: int) -> void:
-	# Only trigger if switching to a new camera
-	if roomFrame == currentFrame:
-		return
+	targetFrame = roomFrame
+	$"../George".updateVisibility(roomFrame)
 	
 	# Step 1: Update camera frame immediately
 	targetFrame = roomFrame

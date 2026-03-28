@@ -290,9 +290,9 @@ volume_db = -1.354
 autoplay = true
 
 [node name="George" type="AnimatedSprite2D" parent="." unique_id=546064090]
+visible = false
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_1g0dp")
-frame = 4
 centered = false
 script = ExtResource("35_jtogi")
 
