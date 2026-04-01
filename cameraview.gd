@@ -7,10 +7,12 @@ func _ready() -> void:
 	$cam1btn.mouse_entered.connect(func(): switchRoom(1))
 	$cam2btn.mouse_entered.connect(func(): switchRoom(0))
 	$AnimatedSprite2D.animation_finished.connect(func(): $roomSelect.frame = targetFrame)
+	
+var currentCam : int = 1  # default to cam1
 
 func switchRoom(roomFrame: int) -> void:
-	targetFrame = roomFrame
-	$"../George".updateVisibility(roomFrame)
+	currentCam = roomFrame
+	$"../George".updateVisibility(currentCam)
 	
 	# Step 1: Update camera frame immediately
 	targetFrame = roomFrame

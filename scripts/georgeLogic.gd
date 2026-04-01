@@ -25,15 +25,18 @@ func tryMove() -> void:
 func _ready() -> void:
 	$georgeTimer.timeout.connect(tryMove)
 	$georgeTimer.start()
+	$jumpscare.visible=false
 
 func checkJumpscare() -> void:
-	pass # check if door is closed, if not, jumpscare
+	if (true):
+		$jumpscare.visible=true
+		print("jumpscare should be firing")
 	
 	
 func updateVisibility(currentCam: int) -> void:
-	if currentRoom == Room.CAM1 and currentCam == 1:
+	if currentRoom == Room.CAM1 and currentCam == 0:
 		$".".visible = true
-	elif currentRoom == Room.CAM2 and currentCam == 2:
+	elif currentRoom == Room.CAM2 and currentCam == 1:
 		$".".visible = true
 	else:
 		$".".visible = false

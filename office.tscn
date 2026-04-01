@@ -34,7 +34,9 @@
 [ext_resource type="Texture2D" uid="uid://ms6sg8if7qva" path="res://textures/george/6db8b09e-e760-4bb3-8f74-63b825c49e2a-3.png" id="32_qt548"]
 [ext_resource type="Texture2D" uid="uid://w0tsv83i1rfs" path="res://textures/george/a6be390a-d5a9-4789-9fe7-552aad832622-2.png" id="33_5c3wu"]
 [ext_resource type="Texture2D" uid="uid://btdsmyjxpftoq" path="res://textures/george/a6be390a-d5a9-4789-9fe7-552aad832622.png" id="34_g68bc"]
+[ext_resource type="Texture2D" uid="uid://bg1dsqp4gslpw" path="res://textures/george/image.png" id="35_cu40l"]
 [ext_resource type="Script" uid="uid://b0qmhevd4odf" path="res://scripts/georgeLogic.gd" id="35_jtogi"]
+[ext_resource type="Texture2D" uid="uid://dr4dkr5l2fk26" path="res://textures/george/Employment-Job-Application-791x1024-3681536362.png" id="37_qt548"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wruqr"]
 animations = [{
@@ -172,6 +174,20 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("34_g68bc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_cu40l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cu40l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("37_qt548")
 }],
 "loop": true,
 "name": &"default",
@@ -290,7 +306,6 @@ volume_db = -1.354
 autoplay = true
 
 [node name="George" type="AnimatedSprite2D" parent="." unique_id=546064090]
-visible = false
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_1g0dp")
 centered = false
@@ -299,6 +314,14 @@ script = ExtResource("35_jtogi")
 [node name="georgeTimer" type="Timer" parent="George" unique_id=1600202999]
 wait_time = 4.0
 autostart = true
+
+[node name="jumpscare" type="AnimatedSprite2D" parent="George" unique_id=1039785276]
+visible = false
+z_index = 8
+position = Vector2(466, -22)
+scale = Vector2(0.5941846, 0.714319)
+sprite_frames = SubResource("SpriteFrames_cu40l")
+centered = false
 
 [node name="TBA" type="AnimatedSprite2D" parent="." unique_id=1865092125]
 visible = false
