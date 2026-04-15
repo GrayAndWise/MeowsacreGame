@@ -26,3 +26,7 @@ func twitchStart() -> void:
 func fadeTimeout() -> void:
 	modulate.a = randf_range(0.3,1.0)
 	$"../Static".material.set_shader_parameter("alpha",randf_range(0.4,0.6))
+
+
+func _on_options_gui_input(event: InputEvent) -> void:
+	pass # Replace with function body.

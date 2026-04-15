@@ -20,10 +20,16 @@ func _gui_input(event : InputEvent) -> void:
 			get_tree().paused = true
 			$"../text".visible = true
 			$"../text/animation".play("show_text")
-			$"../../staticSound".stop()
-			
+		elif name == "options":
+			# We skip the animation and just go!
+			get_tree().change_scene_to_file("res://settings.tscn")
+
 func TextDone(animName : StringName) -> void:
 	if name == "newgame":
 		get_tree().paused = false
 		var scene : PackedScene = load("res://night.tscn")
+		get_tree().change_scene_to_packed(scene)
+	elif name == "options":
+		get_tree().paused = false
+		var scene : PackedScene = load("res://settings.tscn")
 		get_tree().change_scene_to_packed(scene)
