@@ -35,7 +35,7 @@ func checkJumpscare() -> void:
 	
 func updateVisibility(currentCam: int) -> void:
 	if currentRoom == Room.CAM1 and currentCam == 0:
-		$".".visible = true
+		$".".visible = true  #komentaras kad github keistu kazka
 	elif currentRoom == Room.CAM2 and currentCam == 1:
 		$".".visible = true
 	else:
