@@ -54,7 +54,7 @@ func _ready() -> void:
 var jumpscaring: bool = false
 
 func checkJumpscare() -> void:
-	if !doorOpen and !jumpscaring:
+	if $".".frame == 6 and !doorOpen and !jumpscaring:
 		jumpscaring = true
 		get_node("../CanvasLayer/Label").force_close_cameras()
 		$".".visible=true
