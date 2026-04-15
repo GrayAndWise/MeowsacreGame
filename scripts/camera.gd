@@ -1,5 +1,6 @@
 extends Label
 
+
 var cameras_open: bool = false
 
 @onready var camera = $"../../camera"
@@ -20,7 +21,7 @@ func _ready() -> void:
 	self.mouse_entered.connect(_on_mouse_entered)
 	self.mouse_exited.connect(_on_mouse_exited)
 	set_camera_ui_visible(false)
-	george.visible = false
+	george.updateVisibility(camera.currentCam)
 
 func _on_mouse_entered() -> void:
 	pass
@@ -58,5 +59,10 @@ func close_cameras() -> void:
 	static_sprite.visible = false
 	static_sprite.stop()
 	set_camera_ui_visible(false)
-	george.visible = false
+	george.visible = false 
 	camera.play_backwards()
+	
+func force_close_cameras() -> void:
+	if cameras_open:
+		cameras_open = false
+		close_cameras()
