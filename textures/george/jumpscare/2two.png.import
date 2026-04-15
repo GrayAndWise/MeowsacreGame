@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg1dsqp4gslpw"
-path="res://.godot/imported/image.png-1a45c9e763750fd4580add20968547e6.ctex"
+uid="uid://clwh81hfrvfin"
+path="res://.godot/imported/2two.png-1e0165056440097ca0074b0ae5143cd6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/george/image.png"
-dest_files=["res://.godot/imported/image.png-1a45c9e763750fd4580add20968547e6.ctex"]
+source_file="res://textures/george/jumpscare/2two.png"
+dest_files=["res://.godot/imported/2two.png-1e0165056440097ca0074b0ae5143cd6.ctex"]
 
 [params]
 

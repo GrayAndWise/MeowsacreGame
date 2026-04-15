@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://due4i85mqggde"
-path="res://.godot/imported/6db8b09e-e760-4bb3-8f74-63b825c49e2a-2.png-c18d4100625dcf7110069ec84e8d4c76.ctex"
+uid="uid://20m6jbgpxmbs"
+path="res://.godot/imported/5five.png-9a13ee956b0c9d6a64739c0022a5aa5a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/george/6db8b09e-e760-4bb3-8f74-63b825c49e2a-2.png"
-dest_files=["res://.godot/imported/6db8b09e-e760-4bb3-8f74-63b825c49e2a-2.png-c18d4100625dcf7110069ec84e8d4c76.ctex"]
+source_file="res://textures/george/jumpscare/5five.png"
+dest_files=["res://.godot/imported/5five.png-9a13ee956b0c9d6a64739c0022a5aa5a.ctex"]
 
 [params]
 
