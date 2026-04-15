@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://c76ckmlade3x6"]
+
+[ext_resource type="Script" uid="uid://dxqm4yuigxki8" path="res://settingsOptions.gd" id="1_x2hje"]
+[ext_resource type="FontFile" uid="uid://dp8s8why1dwkv" path="res://fonts/SyneMono-Regular.ttf" id="2_nkug2"]
+[ext_resource type="Texture2D" uid="uid://cp3ar1alxpjud" path="res://textures/general art/options_art.png" id="3_3ykye"]
+[ext_resource type="Texture2D" uid="uid://d4i8l4yr0gpox" path="res://textures/general art/uncheck.png" id="4_gc0em"]
+[ext_resource type="Texture2D" uid="uid://7tyua8iamohd" path="res://textures/general art/check.png" id="5_cj1lu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ykye"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gc0em"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Settings" type="Control" unique_id=473066180]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x2hje")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2115401154]
+z_index = -20
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_3ykye")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=17224532]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1587545717]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2124166605]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nkug2")
+theme_override_font_sizes/font_size = 50
+text = "Volume"
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=507343339]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1407532972]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nkug2")
+theme_override_font_sizes/font_size = 50
+text = "Mute"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer" unique_id=1585723405]
+layout_mode = 2
+theme_override_constants/icon_max_width = 100
+theme_override_font_sizes/font_size = 50
+theme_override_icons/checked = ExtResource("5_cj1lu")
+theme_override_icons/unchecked = ExtResource("4_gc0em")
+
+[node name="ResolutionOptions" type="OptionButton" parent="MarginContainer/VBoxContainer" unique_id=937782361]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_nkug2")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_3ykye")
+selected = 2
+item_count = 3
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=257444334]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nkug2")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_gc0em")
+text = "Go back"
+
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/ResolutionOptions" to="." method="_on_resolution_options_item_selected"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

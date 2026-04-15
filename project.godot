@@ -30,7 +30,7 @@ Global="*uid://bnp81og8g626w"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/mode=4
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 
 [input]
 
