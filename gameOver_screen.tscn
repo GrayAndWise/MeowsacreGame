@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://b0abdtta3mymp"]
+
+[ext_resource type="Texture2D" uid="uid://bvyb4n5s4dwdc" path="res://textures/general art/gameOver_artt.png" id="1_pv0q0"]
+[ext_resource type="Script" uid="uid://bd7ojt6mtk4sl" path="res://game_over_screen.gd" id="1_w8y88"]
+[ext_resource type="FontFile" uid="uid://dp8s8why1dwkv" path="res://fonts/SyneMono-Regular.ttf" id="2_w8y88"]
+[ext_resource type="AudioStream" uid="uid://ctjlcyyiw8brm" path="res://audio/darknessDrone.wav" id="4_670n0"]
+
+[node name="Control" type="Control" unique_id=17795199]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w8y88")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1406267943]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pv0q0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=1739065930]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -123.0
+offset_top = 45.0
+offset_right = 125.0
+offset_bottom = 106.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_w8y88")
+theme_override_font_sizes/font_size = 50
+text = "Game over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="tryagain" type="Button" parent="." unique_id=1023852275]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 487.0
+offset_right = 262.0
+offset_bottom = 540.0
+theme_override_fonts/font = ExtResource("2_w8y88")
+theme_override_font_sizes/font_size = 32
+text = "Try again?"
+
+[node name="mainmenu" type="Button" parent="." unique_id=609395212]
+layout_mode = 0
+offset_left = 1004.0
+offset_top = 485.0
+offset_right = 1187.0
+offset_bottom = 538.0
+theme_override_fonts/font = ExtResource("2_w8y88")
+theme_override_font_sizes/font_size = 32
+text = "Main menu"
+
+[node name="music" type="AudioStreamPlayer2D" parent="." unique_id=2099244490]
+process_mode = 3
+stream = ExtResource("4_670n0")
+volume_db = 6.565
+autoplay = true
+
+[connection signal="pressed" from="tryagain" to="." method="_on_tryagain_pressed"]
+[connection signal="pressed" from="mainmenu" to="." method="_on_mainmenu_pressed"]
