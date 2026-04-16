@@ -337,7 +337,7 @@ offset_bottom = 565.0
 mouse_filter = 0
 theme_override_fonts/font = ExtResource("28_m6auj")
 theme_override_font_sizes/font_size = 50
-text = "options"
+text = "Options"
 script = ExtResource("29_4l1ud")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="gui" unique_id=381954550]

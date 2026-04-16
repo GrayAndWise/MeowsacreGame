@@ -56,6 +56,7 @@
 [ext_resource type="Texture2D" uid="uid://1q3m5sui0kay" path="res://textures/george/jumpscare/Untitled168_20260415213546.png" id="53_f5d21"]
 [ext_resource type="Texture2D" uid="uid://dwehenlsb0tln" path="res://textures/george/jumpscare/Untitled168_20260415213551.png" id="54_pulq8"]
 [ext_resource type="AudioStream" uid="uid://dkxe580phj3s3" path="res://audio/jumpscare.mp3" id="55_f2u8t"]
+[ext_resource type="AudioStream" uid="uid://b2idkloe0uugj" path="res://audio/whitenoise_static.wav" id="57_6rmj5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wruqr"]
 animations = [{
@@ -495,6 +496,7 @@ volume_db = -1.354
 autoplay = true
 
 [node name="George" type="AnimatedSprite2D" parent="." unique_id=546064090]
+process_mode = 3
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_1g0dp")
 centered = false
@@ -526,3 +528,8 @@ visible = false
 
 [node name="TBA3" type="AnimatedSprite2D" parent="." unique_id=934631238]
 visible = false
+
+[node name="staticSound" type="AudioStreamPlayer2D" parent="." unique_id=1396119602]
+process_mode = 3
+stream = ExtResource("57_6rmj5")
+volume_db = -2.96

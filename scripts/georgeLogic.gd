@@ -4,7 +4,7 @@ extends Node
 var doorOpen = false
 enum Room { CAM1, CAM2, OFFICE_DOOR }
 var currentRoom : Room = Room.CAM2
-var aiLevel : int = 15
+var aiLevel : int = 1
 var pathIndex : int = 0
 var path = [Room.CAM1, Room.CAM2, Room.OFFICE_DOOR]
 
@@ -56,24 +56,41 @@ func _ready() -> void:
 var jumpscaring: bool = false
 
 func checkJumpscare() -> void:
-	if $".".frame == 6 and !doorOpen and !jumpscaring:
-		jumpscaring = true
-		get_node("../CanvasLayer/Label").force_close_cameras()
-		$".".visible=true
-		$".".frame=0
-		$jumpscare.visible = true
-		$jumpscare.play()
-		await get_tree().create_timer(2).timeout
-		$jumpscaresound.play()
-		$"../doorButton".mouse_filter = Control.MOUSE_FILTER_IGNORE
-		$"../CanvasLayer/Label".visible=false
+	if currentRoom != Room.OFFICE_DOOR or doorOpen or jumpscaring:
+		return
+	
+	await get_tree().create_timer(randf_range(0.7, 1.5)).timeout
+	
+	if doorOpen:
+		return
+	
+	jumpscaring = true
+	get_tree().paused = true  # lock everything
+	
+	get_node("../CanvasLayer/Label").force_close_cameras()
+	$".".visible = true
+	$".".frame = 0
+	$jumpscare.visible = true
+	$jumpscare.play()
+	
+	await get_tree().create_timer(2).timeout
+	$jumpscaresound.play()
+	
+	await get_tree().create_timer(4).timeout
+	
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://gameOver_screen.tscn")
 	
 func updateVisibility(currentCam: int) -> void:
+	if jumpscaring:
+		$".".visible = true
+		return
+	if label == null or !label.cameras_open:
+		$".".visible = false
+		return
 	if currentRoom == Room.CAM1 and currentCam == 1:
 		$".".visible = true 
 	elif currentRoom == Room.CAM2 and currentCam == 0:
-		$".".visible = true
-	elif currentRoom == Room.OFFICE_DOOR and currentCam == 1:
 		$".".visible = true
 	else:
 		$".".visible = false
@@ -84,3 +101,6 @@ func force_toggle_door() -> void:
 		$"../doorButton".texture.current_frame = 0
 		$"../doorButton".mouse_filter = Control.MOUSE_FILTER_IGNORE
 		doorOpen = false
+
+func win() -> void:
+	get_tree().change_scene_to_file("res://win.tscn")

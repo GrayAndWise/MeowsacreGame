@@ -10,15 +10,15 @@ var power: float = 100.0
 
 
 func _ready() -> void:
-	$GameTimer.wait_time = 1.0
+	$GameTimer.wait_time = 1
 	$GameTimer.timeout.connect(_on_tick)
 	$GameTimer.start()
 
 func _on_tick() -> void:
 	time_seconds += 1
 	
-	var drain = 0.05
-	if label.cameras_open: drain += 0.5
+	var drain = 0.125
+	if label.cameras_open: drain += 0.2
 	if george.doorOpen: drain += 0.5
 	power = max(power - drain, 0.0)
 	
@@ -27,6 +27,9 @@ func _on_tick() -> void:
 	
 	if power<=0:
 		george.force_toggle_door()
+	if time_seconds==360:
+		george.win()
+
 
 
 func get_time_string() -> String:

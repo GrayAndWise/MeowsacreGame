@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://b0abdtta3mymp"]
+[gd_scene format=3 uid="uid://btnlr3r4pen5i"]
 
 [ext_resource type="Texture2D" uid="uid://bvyb4n5s4dwdc" path="res://textures/general art/gameOver_artt.png" id="1_pv0q0"]
-[ext_resource type="Script" uid="uid://bd7ojt6mtk4sl" path="res://game_over_screen.gd" id="1_w8y88"]
+[ext_resource type="Script" path="res://game_over_screen.gd" id="1_w8y88"]
 [ext_resource type="FontFile" uid="uid://dp8s8why1dwkv" path="res://fonts/SyneMono-Regular.ttf" id="2_w8y88"]
 [ext_resource type="AudioStream" uid="uid://ctjlcyyiw8brm" path="res://audio/darknessDrone.wav" id="4_670n0"]
 
