@@ -4,7 +4,7 @@ extends Node
 var doorOpen = false
 enum Room { CAM1, CAM2, OFFICE_DOOR }
 var currentRoom : Room = Room.CAM2
-var aiLevel : int = 5
+var aiLevel : int = 15
 var pathIndex : int = 0
 var path = [Room.CAM1, Room.CAM2, Room.OFFICE_DOOR]
 
@@ -31,13 +31,15 @@ func toggleDoor() -> void:
 	
 func tryMove() -> void:
 	if randi() % 20 < aiLevel:
-		pathIndex = min(pathIndex + 1, path.size() - 1)
+		var move = randi() % 3 - 1  # -1, 0, or +1
+		pathIndex = clamp(pathIndex + move, 0, path.size() - 1)
 		currentRoom = path[pathIndex]
 		var frames = roomFrames[currentRoom]
 		$".".frame = frames[randi() % frames.size()]
 		if label.cameras_open: 
 			$"../camera/AnimatedSprite2D".play() # glitch
 			$"../camera/AudioStreamPlayer2D".play() #glitch sound
+		print("Current room:", currentRoom, " Frame:", $".".frame)
 		if currentRoom == Room.OFFICE_DOOR:
 			checkJumpscare()
 		updateVisibility(get_node("../camera").currentCam)
@@ -67,12 +69,11 @@ func checkJumpscare() -> void:
 		$"../CanvasLayer/Label".visible=false
 	
 func updateVisibility(currentCam: int) -> void:
-	if $jumpscare.visible:
-		$".".visible = true
-		return
 	if currentRoom == Room.CAM1 and currentCam == 1:
 		$".".visible = true 
 	elif currentRoom == Room.CAM2 and currentCam == 0:
+		$".".visible = true
+	elif currentRoom == Room.OFFICE_DOOR and currentCam == 1:
 		$".".visible = true
 	else:
 		$".".visible = false

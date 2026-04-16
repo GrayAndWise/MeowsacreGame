@@ -25,11 +25,12 @@ func _gui_input(event : InputEvent) -> void:
 			get_tree().change_scene_to_file("res://settings.tscn")
 
 func TextDone(animName : StringName) -> void:
+	if get_tree() == null:
+		return
+		
 	if name == "newgame":
 		get_tree().paused = false
-		var scene : PackedScene = load("res://night.tscn")
-		get_tree().change_scene_to_packed(scene)
+		get_tree().change_scene_to_file("res://night.tscn")
 	elif name == "options":
 		get_tree().paused = false
-		var scene : PackedScene = load("res://settings.tscn")
-		get_tree().change_scene_to_packed(scene)
+		get_tree().change_scene_to_file("res://settings.tscn")

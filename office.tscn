@@ -347,7 +347,6 @@ offset_bottom = 23.0
 script = ExtResource("2_6rmj5")
 
 [node name="GameTimer" type="Timer" parent="Label" unique_id=501431270]
-wait_time = 60.0
 autostart = true
 
 [node name="TimeLabel" type="Label" parent="Label" unique_id=1529172921]

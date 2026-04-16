@@ -17,7 +17,7 @@ func _ready() -> void:
 func _on_tick() -> void:
 	time_seconds += 1
 	
-	var drain = 1
+	var drain = 0.05
 	if label.cameras_open: drain += 0.5
 	if george.doorOpen: drain += 0.5
 	power = max(power - drain, 0.0)
