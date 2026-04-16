@@ -24,13 +24,16 @@ func _gui_input(event : InputEvent) -> void:
 			# We skip the animation and just go!
 			get_tree().change_scene_to_file("res://settings.tscn")
 
-func TextDone(animName : StringName) -> void:
-	if get_tree() == null:
+func TextDone(animName: StringName) -> void:
+	if !is_inside_tree():
 		return
-		
 	if name == "newgame":
 		get_tree().paused = false
 		get_tree().change_scene_to_file("res://night.tscn")
 	elif name == "options":
 		get_tree().paused = false
 		get_tree().change_scene_to_file("res://settings.tscn")
+		
+func _exit_tree() -> void:
+	if $"../text/animation".animation_finished.is_connected(TextDone):
+		$"../text/animation".animation_finished.disconnect(TextDone)

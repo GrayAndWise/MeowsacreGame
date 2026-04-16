@@ -4,7 +4,7 @@ extends Node
 var doorOpen = false
 enum Room { CAM1, CAM2, OFFICE_DOOR }
 var currentRoom : Room = Room.CAM2
-var aiLevel : int = 1
+var aiLevel : int = 12
 var pathIndex : int = 0
 var path = [Room.CAM1, Room.CAM2, Room.OFFICE_DOOR]
 

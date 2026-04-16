@@ -343,6 +343,7 @@ animations = [{
 [node name="Office" type="Node2D" unique_id=2096332971]
 
 [node name="Label" type="Label" parent="." unique_id=1702356977]
+process_mode = 3
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("2_6rmj5")
@@ -417,6 +418,7 @@ texture = ExtResource("4_4i814")
 expand_mode = 1
 
 [node name="camera" type="AnimatedSprite2D" parent="." unique_id=1038087637]
+process_mode = 3
 sprite_frames = SubResource("SpriteFrames_25m5p")
 centered = false
 script = ExtResource("8_25m5p")
