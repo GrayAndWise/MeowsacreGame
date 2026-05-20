@@ -6,7 +6,7 @@ enum Room { CAM1, CAM2, OFFICE_DOOR }
 var currentRoom : Room = Room.CAM2
 var aiLevel : int = 12
 var pathIndex : int = 0
-var path = [Room.CAM1, Room.CAM2, Room.OFFICE_DOOR]
+var path = [1, 2, 3, 4, 5, 6]
 
 var roomFrames = {
 	Room.CAM1: [4, 5],
@@ -31,15 +31,21 @@ func toggleDoor() -> void:
 	
 func tryMove() -> void:
 	if randi() % 20 < aiLevel:
-		var move = randi() % 3 - 1  # -1, 0, or +1
-		pathIndex = clamp(pathIndex + move, 0, path.size() - 1)
-		currentRoom = path[pathIndex]
-		var frames = roomFrames[currentRoom]
-		$".".frame = frames[randi() % frames.size()]
-		if label.cameras_open: 
-			$"../camera/AnimatedSprite2D".play() # glitch
-			$"../camera/AudioStreamPlayer2D".play() #glitch sound
-		print("Current room:", currentRoom, " Frame:", $".".frame)
+		pathIndex = pathIndex + 1
+		if pathIndex >=path.size():
+			pathIndex = path.size() - 1
+		$".".frame = path[pathIndex]
+		if $".".frame in [1, 2, 3]:
+			currentRoom = Room.CAM2
+		elif $".".frame in [4, 5]:
+			currentRoom = Room.CAM1
+		elif $".".frame == 6:
+			currentRoom = Room.OFFICE_DOOR
+		if label.cameras_open:
+			$"../camera/AnimatedSprite2D".play()
+			$"../camera/AudioStreamPlayer2D".play()
+		print("Kačiukas pajudėjo į priekį! Kambarys:", currentRoom, " Kadras:",
+		 $".".frame)
 		if currentRoom == Room.OFFICE_DOOR:
 			checkJumpscare()
 		updateVisibility(get_node("../camera").currentCam)
@@ -56,17 +62,36 @@ func _ready() -> void:
 var jumpscaring: bool = false
 
 func checkJumpscare() -> void:
-	if currentRoom != Room.OFFICE_DOOR or doorOpen or jumpscaring:
+	if jumpscaring:
 		return
 	
 	await get_tree().create_timer(randf_range(0.7, 1.5)).timeout
 	
 	if doorOpen:
+		print("Užblokuota! Durys uždarytos. Kačiukas bėga atgal į pradžią.")
+		
+		var startFrames = [1, 2, 3]
+		var randomFrame = startFrames[randi() % startFrames.size()]
+		$".".frame = randomFrame
+		pathIndex = randomFrame - 1
+		currentRoom = Room.CAM2
+		
+		updateVisibility(get_node("../camera").currentCam)
+		return
+		
+	await get_tree().create_timer(randf_range(0.7, 1.5)).timeout
+	if doorOpen:
+		print("Spėjai uždaryti! Kačiukas bėga atgal.")
+		var startFrames = [1, 2, 3]
+		var randomFrame = startFrames[randi() % startFrames.size()]
+		$".".frame = randomFrame
+		pathIndex = randomFrame - 1
+		currentRoom = Room.CAM2
+		updateVisibility(get_node("../camera").currentCam)
 		return
 	
 	jumpscaring = true
-	get_tree().paused = true  # lock everything
-	
+	get_tree().paused = true
 	get_node("../CanvasLayer/Label").force_close_cameras()
 	$".".visible = true
 	$".".frame = 0
