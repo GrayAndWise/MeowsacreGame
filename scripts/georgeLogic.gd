@@ -7,6 +7,9 @@ var currentRoom : Room = Room.CAM2
 var aiLevel : int = 12
 var pathIndex : int = 0
 var path = [1, 2, 3, 4, 5, 6]
+var lightOn = false
+@onready var lightSprite = $doorAppear
+
 
 var roomFrames = {
 	Room.CAM1: [4, 5],
@@ -58,8 +61,18 @@ func _ready() -> void:
 	$"../doorButton".gui_input.connect(_gui_input)
 	$".".frame=1;
 	updateVisibility(get_node("../camera").currentCam)
+	
+	$"../lightButton".gui_input.connect(_on_light_button_input)
+	lightSprite.visible = false
 
 var jumpscaring: bool = false
+
+func _on_light_button_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			print("Tikras paspaudimas!")
+			toggleLight()
+	
 
 func checkJumpscare() -> void:
 	if jumpscaring:
@@ -120,6 +133,18 @@ func updateVisibility(currentCam: int) -> void:
 	else:
 		$".".visible = false
 		
+func toggleLight() -> void:
+	lightOn = !lightOn
+	
+	if lightOn:
+		lightSprite.visible = true
+		if currentRoom == Room.OFFICE_DOOR:
+			lightSprite.frame = 0
+		else:
+			lightSprite.frame = 1 # Rodo šviesą be akių
+	else:
+		lightSprite.visible = false
+	
 func force_toggle_door() -> void:
 	if doorOpen:
 		$"../door".play_backwards()

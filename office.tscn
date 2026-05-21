@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://jfpnfg0k58yj" path="res://textures/rooms/door/doorClose3.png" id="3_4360s"]
 [ext_resource type="Texture2D" uid="uid://bw04k6ifr20ci" path="res://textures/rooms/door/doorbuttonon.png" id="3_f2u8t"]
 [ext_resource type="Script" uid="uid://472qauf4u4s3" path="res://scripts/camera.gd" id="3_lcnwv"]
-[ext_resource type="Script" uid="uid://c5qqt35oqygt1" path="res://scripts/scroll.gd" id="3_rwrx0"]
+[ext_resource type="Script" path="res://scripts/scroll.gd" id="3_rwrx0"]
 [ext_resource type="Texture2D" uid="uid://4gjq6wv270nk" path="res://textures/button.png" id="4_4i814"]
 [ext_resource type="Texture2D" uid="uid://duor5e8jumko8" path="res://textures/rooms/door/doorClose2.png" id="4_a0t2l"]
 [ext_resource type="Texture2D" uid="uid://clbrecx5fnvw7" path="res://textures/rooms/door/Vent-closing-1.png" id="5_3ff2b"]
@@ -470,22 +470,24 @@ position = Vector2(638, 360)
 script = ExtResource("3_rwrx0")
 
 [node name="lightButton" type="TextureRect" parent="." unique_id=1121087010]
-offset_left = 453.0
-offset_top = 530.0
-offset_right = 493.0
-offset_bottom = 570.0
+offset_left = 454.0
+offset_top = 482.0
+offset_right = 517.05884
+offset_bottom = 546.47064
 scale = Vector2(2.125, 2.125)
 mouse_filter = 0
 texture = SubResource("AnimatedTexture_n1qgr")
+expand_mode = 1
 
 [node name="ventButton" type="TextureRect" parent="." unique_id=1329044197]
-offset_left = 246.0
-offset_top = 554.0
-offset_right = 286.0
-offset_bottom = 594.0
+offset_left = 234.0
+offset_top = 552.0
+offset_right = 281.88635
+offset_bottom = 605.75
 scale = Vector2(2.0465117, 1.9534883)
 mouse_filter = 0
 texture = SubResource("AnimatedTexture_jheaw")
+expand_mode = 1
 
 [node name="doorButton" type="TextureRect" parent="." unique_id=1998436301]
 z_index = 1
@@ -555,6 +557,14 @@ offset_bottom = 475.0
 mouse_filter = 0
 texture = ExtResource("10_4hetp")
 
+[node name="cam3btn" type="TextureRect" parent="camera" unique_id=705421269]
+z_index = 2
+offset_left = 754.0
+offset_top = 433.0
+offset_right = 831.0
+offset_bottom = 498.0
+texture = ExtResource("28_ity3l")
+
 [node name="cam2btn" type="TextureRect" parent="camera" unique_id=79453578]
 z_index = 2
 offset_left = 931.0
@@ -564,19 +574,21 @@ offset_bottom = 382.0
 mouse_filter = 0
 texture = ExtResource("11_o3cd7")
 
-[node name="cam3btn" type="TextureRect" parent="camera" unique_id=705421269]
-offset_left = 754.0
-offset_top = 433.0
-offset_right = 831.0
-offset_bottom = 498.0
-texture = ExtResource("28_ity3l")
-
 [node name="cam4btn" type="TextureRect" parent="camera" unique_id=999310023]
+z_index = 2
 offset_left = 841.0
 offset_top = 540.0
 offset_right = 918.0
 offset_bottom = 605.0
 texture = ExtResource("29_5qg4s")
+
+[node name="cam5btn" type="TextureRect" parent="camera" unique_id=1324100799]
+z_index = 2
+offset_left = 1139.0
+offset_top = 343.0
+offset_right = 1216.0
+offset_bottom = 408.0
+texture = ExtResource("49_rqlqf")
 
 [node name="roomSelect" type="AnimatedSprite2D" parent="camera" unique_id=1491464295]
 visible = false
@@ -610,13 +622,6 @@ position = Vector2(29, 24)
 stream = ExtResource("29_cu40l")
 volume_db = -17.391
 pitch_scale = 1.05
-
-[node name="cam5btn" type="TextureRect" parent="camera" unique_id=1324100799]
-offset_left = 1139.0
-offset_top = 343.0
-offset_right = 1216.0
-offset_bottom = 408.0
-texture = ExtResource("49_rqlqf")
 
 [node name="music" type="AudioStreamPlayer2D" parent="." unique_id=1631957415]
 process_mode = 3

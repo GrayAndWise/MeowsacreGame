@@ -16,7 +16,6 @@ func _process(delta: float) -> void:
 	# Mouse at Right Edge -> Shift entire world LEFT
 	elif mouse_pos.x > (window_width - edge_margin) and position.x < 630:
 		direction = 1.0
-	print(position.x)
 
 	# Moving the single parent container moves all child sprites simultaneously!
 	position.x += direction * speed * delta
