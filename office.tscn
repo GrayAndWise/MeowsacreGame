@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://jfpnfg0k58yj" path="res://textures/rooms/door/doorClose3.png" id="3_4360s"]
 [ext_resource type="Texture2D" uid="uid://bw04k6ifr20ci" path="res://textures/rooms/door/doorbuttonon.png" id="3_f2u8t"]
 [ext_resource type="Script" uid="uid://472qauf4u4s3" path="res://scripts/camera.gd" id="3_lcnwv"]
-[ext_resource type="Script" path="res://scripts/scroll.gd" id="3_rwrx0"]
+[ext_resource type="Script" uid="uid://c5qqt35oqygt1" path="res://scripts/scroll.gd" id="3_rwrx0"]
 [ext_resource type="Texture2D" uid="uid://4gjq6wv270nk" path="res://textures/button.png" id="4_4i814"]
 [ext_resource type="Texture2D" uid="uid://duor5e8jumko8" path="res://textures/rooms/door/doorClose2.png" id="4_a0t2l"]
 [ext_resource type="Texture2D" uid="uid://clbrecx5fnvw7" path="res://textures/rooms/door/Vent-closing-1.png" id="5_3ff2b"]
@@ -656,9 +656,10 @@ process_mode = 3
 stream = ExtResource("55_f2u8t")
 
 [node name="doorAppear" type="AnimatedSprite2D" parent="George" unique_id=1034035781]
-position = Vector2(608.00006, 251)
-scale = Vector2(0.7872033, 0.81)
+position = Vector2(608.00006, 251.8557)
+scale = Vector2(0.7872033, 0.80792195)
 sprite_frames = SubResource("SpriteFrames_b6li7")
+frame = 1
 
 [node name="TBA2" type="AnimatedSprite2D" parent="." unique_id=80077738]
 visible = false

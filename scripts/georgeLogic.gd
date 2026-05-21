@@ -64,6 +64,8 @@ func _ready() -> void:
 	
 	$"../lightButton".gui_input.connect(_on_light_button_input)
 	lightSprite.visible = false
+	
+	
 
 var jumpscaring: bool = false
 
@@ -82,25 +84,35 @@ func checkJumpscare() -> void:
 	
 	if doorOpen:
 		print("Užblokuota! Durys uždarytos. Kačiukas bėga atgal į pradžią.")
-		
 		var startFrames = [1, 2, 3]
 		var randomFrame = startFrames[randi() % startFrames.size()]
-		$".".frame = randomFrame
 		pathIndex = randomFrame - 1
 		currentRoom = Room.CAM2
 		
-		updateVisibility(get_node("../camera").currentCam)
+		if lightOn:
+			$".".frame = 0
+			lightSprite.frame = 1
+		else:
+			$".".frame = randomFrame
+			updateVisibility(get_node("../camera").currentCam)
 		return
+		
 		
 	await get_tree().create_timer(randf_range(0.7, 1.5)).timeout
 	if doorOpen:
 		print("Spėjai uždaryti! Kačiukas bėga atgal.")
 		var startFrames = [1, 2, 3]
 		var randomFrame = startFrames[randi() % startFrames.size()]
-		$".".frame = randomFrame
 		pathIndex = randomFrame - 1
 		currentRoom = Room.CAM2
 		updateVisibility(get_node("../camera").currentCam)
+		
+		if lightOn:
+			$".".frame = 0
+			lightSprite.frame = 1
+		else:
+			$".".frame = randomFrame
+			updateVisibility(get_node("../camera").currentCam)
 		return
 	
 	jumpscaring = true
@@ -120,6 +132,8 @@ func checkJumpscare() -> void:
 	get_tree().change_scene_to_file("res://gameOver_screen.tscn")
 	
 func updateVisibility(currentCam: int) -> void:
+	if lightOn:
+		return
 	if jumpscaring:
 		$".".visible = true
 		return
@@ -137,13 +151,19 @@ func toggleLight() -> void:
 	lightOn = !lightOn
 	
 	if lightOn:
+		$".".visible = true
 		lightSprite.visible = true
+		
 		if currentRoom == Room.OFFICE_DOOR:
 			lightSprite.frame = 0
+			$".".frame = path[pathIndex]
 		else:
 			lightSprite.frame = 1 # Rodo šviesą be akių
+			$".".frame = 0
 	else:
 		lightSprite.visible = false
+		$".".frame = path[pathIndex]
+		updateVisibility(get_node("../camera").currentCam)
 	
 func force_toggle_door() -> void:
 	if doorOpen:
