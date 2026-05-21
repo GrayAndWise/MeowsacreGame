@@ -32,6 +32,10 @@ window/size/viewport_height=720
 window/size/mode=4
 window/stretch/mode="viewport"
 
+[dotnet]
+
+project/assembly_name="One Night At Kitties"
+
 [input]
 
 "skip warning"={

@@ -6,6 +6,9 @@ var currentFrame: int = 0  # Tracks which camera is active
 func _ready() -> void:
 	$cam1btn.mouse_entered.connect(func(): switchRoom(1))
 	$cam2btn.mouse_entered.connect(func(): switchRoom(0))
+	$cam3btn.mouse_entered.connect(func(): switchRoom(2))
+	$cam4btn.mouse_entered.connect(func(): switchRoom(3))
+	$cam5btn.mouse_entered.connect(func(): switchRoom(4))
 	$AnimatedSprite2D.animation_finished.connect(func(): $roomSelect.frame = targetFrame)
 	
 var currentCam : int = 1  # default to cam1

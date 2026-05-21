@@ -15,6 +15,9 @@ var cameras_open: bool = false
 	camera.get_node("camMap"),
 	camera.get_node("cam1btn"),
 	camera.get_node("cam2btn"),
+	camera.get_node("cam3btn"),
+	camera.get_node("cam4btn"),
+	camera.get_node("cam5btn"),
 ]
 
 func _ready() -> void:
@@ -53,6 +56,8 @@ func open_cameras() -> void:
 	audio_player.play()
 	set_camera_ui_visible(true)
 	george.updateVisibility(camera.currentCam)
+	$"../../Camera2D".position.x=631
+	$"../../Camera2D".set_process(false)
 
 func close_cameras() -> void:
 	anim_sprite.play()
@@ -61,6 +66,8 @@ func close_cameras() -> void:
 	set_camera_ui_visible(false)
 	george.visible = false 
 	camera.play_backwards()
+	$"../../Camera2D".position.x=631
+	$"../../Camera2D".set_process(true)
 	
 func force_close_cameras() -> void:
 	if cameras_open:
