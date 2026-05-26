@@ -73,6 +73,11 @@
 [ext_resource type="AudioStream" uid="uid://b2idkloe0uugj" path="res://audio/whitenoise_static.wav" id="57_6rmj5"]
 [ext_resource type="Texture2D" uid="uid://bewy6jq6untrm" path="res://textures/george/Light-with-eyes-when-pressed.png" id="68_b1xpf"]
 [ext_resource type="Texture2D" uid="uid://b8wb35jfg8r8p" path="res://textures/george/Light-without-eyes-when-pressed.png" id="69_dehg8"]
+[ext_resource type="Texture2D" uid="uid://rr8hwb21gaso" path="res://textures/siren/walkiesAroundOffice/f60e3399-a4fc-4ec7-a14e-7bd739d8100d.png" id="74_5qg4s"]
+[ext_resource type="Texture2D" uid="uid://digpa6qgivc1i" path="res://textures/siren/walkiesAroundOffice/asv.png" id="75_rqlqf"]
+[ext_resource type="Texture2D" uid="uid://cgdvkyhsvgijw" path="res://textures/siren/walkiesAroundOffice/33f22817-0c91-4f51-8405-08766af1715c-2.png" id="76_csuqh"]
+[ext_resource type="Texture2D" uid="uid://cshujhke2kdqf" path="res://textures/siren/walkiesAroundOffice/dccf8abe-8f9a-4f14-98a0-46f5d336ab6b.png" id="77_5vds2"]
+[ext_resource type="Script" uid="uid://bv0x0r3kckyb" path="res://Siren.gd" id="78_b1xpf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wruqr"]
 animations = [{
@@ -413,6 +418,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_dehg8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("74_5qg4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_rqlqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_csuqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_5vds2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Office" type="Node2D" unique_id=2096332971]
 
 [node name="Label" type="Label" parent="." unique_id=1702356977]
@@ -671,3 +696,15 @@ visible = false
 process_mode = 3
 stream = ExtResource("57_6rmj5")
 volume_db = -2.96
+
+[node name="Siren" type="AnimatedSprite2D" parent="." unique_id=56892823]
+process_mode = 3
+z_index = 1
+position = Vector2(20, 3.9999847)
+scale = Vector2(0.6536459, 0.6657408)
+sprite_frames = SubResource("SpriteFrames_dehg8")
+centered = false
+script = ExtResource("78_b1xpf")
+
+[node name="sirenTimer" type="Timer" parent="Siren" unique_id=1048883110]
+wait_time = 4.0

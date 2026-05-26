@@ -9,6 +9,7 @@ var cameras_open: bool = false
 @onready var audio_player = camera.get_node("AudioStreamPlayer2D")
 @onready var Office = $"../.."
 @onready var george = Office.get_node("George")
+@onready var siren = Office.get_node("Siren") # Pridedam nuorodą į Sireną
 @onready var ui_nodes = [
 	camera.get_node("roomSelect"),
 	camera.get_node("ColorRect"),
@@ -25,6 +26,7 @@ func _ready() -> void:
 	self.mouse_exited.connect(_on_mouse_exited)
 	set_camera_ui_visible(false)
 	george.updateVisibility(camera.currentCam)
+	siren.updateVisibility(camera.currentCam)
 
 func _on_mouse_entered() -> void:
 	pass
@@ -56,6 +58,7 @@ func open_cameras() -> void:
 	audio_player.play()
 	set_camera_ui_visible(true)
 	george.updateVisibility(camera.currentCam)
+	siren.updateVisibility(camera.currentCam)
 	$"../../Camera2D".position.x=631
 	$"../../Camera2D".set_process(false)
 
@@ -65,6 +68,7 @@ func close_cameras() -> void:
 	static_sprite.stop()
 	set_camera_ui_visible(false)
 	george.visible = false 
+	siren.visible = false
 	camera.play_backwards()
 	$"../../Camera2D".position.x=631
 	$"../../Camera2D".set_process(true)

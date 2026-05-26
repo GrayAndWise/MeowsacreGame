@@ -37,21 +37,29 @@ func tryMove() -> void:
 		pathIndex = pathIndex + 1
 		if pathIndex >=path.size():
 			pathIndex = path.size() - 1
+			
 		$".".frame = path[pathIndex]
+		
 		if $".".frame in [1, 2, 3]:
 			currentRoom = Room.CAM2
 		elif $".".frame in [4, 5]:
 			currentRoom = Room.CAM1
 		elif $".".frame == 6:
 			currentRoom = Room.OFFICE_DOOR
+			
 		if label.cameras_open:
 			$"../camera/AnimatedSprite2D".play()
 			$"../camera/AudioStreamPlayer2D".play()
+			
 		print("Kačiukas pajudėjo į priekį! Kambarys:", currentRoom, " Kadras:",
 		 $".".frame)
+		
 		if currentRoom == Room.OFFICE_DOOR:
 			checkJumpscare()
-		updateVisibility(get_node("../camera").currentCam)
+			
+			
+			
+		refreshVisualState()
 			
 			
 func _ready() -> void:
@@ -172,5 +180,20 @@ func force_toggle_door() -> void:
 		$"../doorButton".mouse_filter = Control.MOUSE_FILTER_IGNORE
 		doorOpen = false
 
+
+func refreshVisualState() -> void:
+	if lightOn:
+		# Jei šviesa dega, priverstinai paleidžiam šviesos logiką,
+		# kuri paslepia arba parodo kačiuką prie durų priklausomai nuo kambario
+		if currentRoom == Room.OFFICE_DOOR:
+			lightSprite.frame = 0
+			$".".frame = path[pathIndex]
+			$".".visible = true
+		else:
+			lightSprite.frame = 1 # Rodo šviesą be akių
+			$".".frame = 0
+	else:
+		# Jei šviesa nedega, veikia įprasta kamerų matomumo logika
+		updateVisibility(get_node("../camera").currentCam)
 func win() -> void:
 	get_tree().change_scene_to_file("res://win.tscn")
