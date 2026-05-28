@@ -2,7 +2,7 @@ extends AnimatedSprite2D
 
 @onready var label = $"../CanvasLayer/Label" # Kamerų valdymo mazgas
 
-enum Room { CAM2, CAM4, CAM5 }
+enum Room { CAM2, CAM3, CAM4 }
 var currentRoom : Room = Room.CAM2
 var jumpscaring= false
 var aiLevel : int = 10
@@ -47,9 +47,9 @@ func tryMove() -> void:
 		if $".".frame in [0]:
 			currentRoom = Room.CAM2
 		elif $".".frame in [1, 2]:
-			currentRoom = Room.CAM4
+			currentRoom = Room.CAM3
 		elif $".".frame == 3:
-			currentRoom = Room.CAM5
+			currentRoom = Room.CAM4
 			
 		if label.cameras_open:
 			$"../camera/AnimatedSprite2D".play()
@@ -67,9 +67,9 @@ func updateVisibility(currentCam: int) -> void:
 	# Tikrinam pagal tavo tikruosius kamerų indeksus (CAM2=0, CAM4=3, CAM5=4)
 	if currentRoom == Room.CAM2 and currentCam == 0:
 		$".".visible = true 
-	elif currentRoom == Room.CAM4 and currentCam == 3:
+	elif currentRoom == Room.CAM3 and currentCam == 2:
 		$".".visible = true
-	elif currentRoom == Room.CAM5 and currentCam == 4:
+	elif currentRoom == Room.CAM4 and currentCam == 3:
 		$".".visible = true
 	else:
 		$".".visible = false
