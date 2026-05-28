@@ -16,7 +16,7 @@ Inspired by FNAF type games.
 2. Per Godot 4.5 importuoti projektą
 3. Pradėti žaidima nuo pradžios
 
-## Sistemo reikalavimai
+## Sistemos reikalavimai
 Žaidimas yra lengvesnis už tuščią Word dokumentą, todėl paleisite praktiškai ant bet ko, kas turi ekraną.
 
 **OS:** Windows, macOS arba Linux (jei pasileidžia YouTube, pasileis ir šitas).
