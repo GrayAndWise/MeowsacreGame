@@ -8,15 +8,12 @@ var currentRoom : Room = Room.CAM2
 var aiLevel : int = 10
 var pathIndex : int = 0
 
-# Tikrieji kadrai, kuriuos naudoja Sirena
-var path = [0, 1, 2, 3]
-var walkingForward : bool = true # Kontroliuoja, ar ji eina pirmyn, ar grįžta atgal
+# --- Ventiliacijos kintamieji (Nukopijuota nuo George durų) ---
+var ventOpen = false
 
-var roomFrames = {
-	Room.CAM2: [0],
-	Room.CAM4: [1, 2],
-	Room.CAM5: [3]
-}
+# Tikrieji kadrai, kuriuos naudoja Sirena judėjimui fone
+var path = [0, 1, 2, 3]
+var walkingForward : bool = true 
 
 func _ready() -> void:
 	$sirenTimer.timeout.connect(tryMove)
@@ -24,6 +21,10 @@ func _ready() -> void:
 	$".".frame = 0
 	currentRoom = Room.CAM2
 	updateVisibility(get_node("../camera").currentCam)
+	
+	# Žaidimo pradžioje prijungiame Ventiliacijos mygtuką prie šio skripto
+	if has_node("../ventButton"):
+		$"../ventButton".gui_input.connect(_on_vent_button_input)
 
 func tryMove() -> void:
 	if randi() % 20 < aiLevel:
@@ -31,18 +32,15 @@ func tryMove() -> void:
 		# --- Judėjimo logika pirmyn / atgal ---
 		if walkingForward:
 			pathIndex += 1
-			# Jei pasiekė galą (kadras 3, indeksas 3), kitą kartą ji eis atgal
 			if pathIndex >= path.size():
-				pathIndex = path.size() - 2 # Nukreipiam į kadrą 2
+				pathIndex = path.size() - 2 
 				walkingForward = false
 		else:
 			pathIndex -= 1
-			# Jei grįžo į pradžią (kadras 0, indeksas 0), vėl eis pirmyn
 			if pathIndex < 0:
-				pathIndex = 1 # Nukreipiam į kadrą 1
+				pathIndex = 1 
 				walkingForward = true
 		
-		# Nustatom kadrą iš masyvo
 		$".".frame = path[pathIndex]
 		
 		# --- Kambarių nustatymas pagal kadrus ---
@@ -59,7 +57,6 @@ func tryMove() -> void:
 			
 		print("Sirena katytė pajudėjo! Kambarys: ", Room.keys()[currentRoom], " Kadras: ", $".".frame)
 		
-		# Atnaujinam matomumą ekrane
 		updateVisibility(get_node("../camera").currentCam)
 
 func updateVisibility(currentCam: int) -> void:
@@ -67,12 +64,36 @@ func updateVisibility(currentCam: int) -> void:
 		$".".visible = false
 		return
 		
-	# Tikrinam pagal tavo nurodytus kamerų indeksus (CAM2 = 0, CAM4 = 1, CAM5 = 2)
+	# Tikrinam pagal tavo tikruosius kamerų indeksus (CAM2=0, CAM4=3, CAM5=4)
 	if currentRoom == Room.CAM2 and currentCam == 0:
 		$".".visible = true 
-	elif currentRoom == Room.CAM4 and currentCam == 2:
+	elif currentRoom == Room.CAM4 and currentCam == 3:
 		$".".visible = true
-	elif currentRoom == Room.CAM5 and currentCam == 3:
+	elif currentRoom == Room.CAM5 and currentCam == 4:
 		$".".visible = true
 	else:
 		$".".visible = false
+
+# --- Ventiliacijos valdymo funkcijos (Pagal George pavyzdį) ---
+
+func _on_vent_button_input(event: InputEvent) -> void:
+	# Tikrinam, ar žaidėjas paspaudė kairįjį pelės mygtuką ant ventButton
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			toggleVent()
+
+func toggleVent() -> void:
+	if ventOpen:
+		# Pataisytas kelias pridėjus /office/
+		$"../office/ventDoor".play_backwards() # Atidarome/atidengiame ventiliaciją
+		if has_node("../office/ventButton") and $"../office/ventButton".texture:
+			$"../office/ventButton".texture.current_frame = 0 # Grąžinam paprastą mygtuko kadrą
+		ventOpen = false
+		print("Ventiliacija atidaryta!")
+	else:
+		# Pataisytas kelias pridėjus /office/
+		$"../office/ventDoor".play() # Uždarome ventiliaciją (pasirodo grotelės/durys)
+		if has_node("../office/ventButton") and $"../office/ventButton".texture:
+			$"../office/ventButton".texture.current_frame = 1 # Mygtukas pradeda šviesti
+		ventOpen = true
+		print("Ventiliacija uždaryta!")
