@@ -16,6 +16,7 @@ var currentCam : int = 1  # default to cam1
 func switchRoom(roomFrame: int) -> void:
 	currentCam = roomFrame
 	$"../George".updateVisibility(currentCam)
+	$"../Siren".updateVisibility(currentCam)
 	
 	# Step 1: Update camera frame immediately
 	targetFrame = roomFrame

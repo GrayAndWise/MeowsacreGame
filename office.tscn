@@ -47,14 +47,14 @@
 [ext_resource type="AudioStream" uid="uid://8h280nelkl5q" path="res://audio/ambienceLoop.wav" id="29_46so7"]
 [ext_resource type="AudioStream" uid="uid://c2yxlflhdbfim" path="res://audio/shortGlitch.wav" id="29_cu40l"]
 [ext_resource type="Texture2D" uid="uid://due4i85mqggde" path="res://textures/george/georgewander/6db8b09e-e760-4bb3-8f74-63b825c49e2a-2.png" id="30_5bs7n"]
-[ext_resource type="Texture2D" uid="uid://btbkdcbtpj330" path="res://textures/rooms/Untitled180_20260521021545.png" id="30_rqlqf"]
-[ext_resource type="Texture2D" uid="uid://rwtyuqi857xb" path="res://textures/rooms/dccf8abe-8f9a-4f14-98a0-46f5d336ab6b.png" id="31_csuqh"]
 [ext_resource type="Texture2D" uid="uid://clc482evd3ntv" path="res://textures/george/georgewander/6db8b09e-e760-4bb3-8f74-63b825c49e2a.png" id="31_cu40l"]
-[ext_resource type="Texture2D" uid="uid://dleoav8khdgic" path="res://textures/rooms/33f22817-0c91-4f51-8405-08766af1715c.png" id="32_5vds2"]
 [ext_resource type="Texture2D" uid="uid://ms6sg8if7qva" path="res://textures/george/georgewander/6db8b09e-e760-4bb3-8f74-63b825c49e2a-3.png" id="32_qt548"]
 [ext_resource type="Texture2D" uid="uid://w0tsv83i1rfs" path="res://textures/george/georgewander/a6be390a-d5a9-4789-9fe7-552aad832622-2.png" id="33_5c3wu"]
+[ext_resource type="Texture2D" uid="uid://c3kobcn2mof5w" path="res://textures/rooms/storage_room.png" id="33_5qg4s"]
+[ext_resource type="Texture2D" uid="uid://dq7ns2uig4m6b" path="res://textures/rooms/vents.png" id="34_5qg4s"]
 [ext_resource type="Texture2D" uid="uid://btdsmyjxpftoq" path="res://textures/george/georgewander/a6be390a-d5a9-4789-9fe7-552aad832622.png" id="34_g68bc"]
 [ext_resource type="Script" uid="uid://b0qmhevd4odf" path="res://scripts/georgeLogic.gd" id="35_jtogi"]
+[ext_resource type="Texture2D" uid="uid://no2aidgtaa20" path="res://textures/rooms/kitchen.png" id="35_rqlqf"]
 [ext_resource type="Texture2D" uid="uid://b31trsnq7p63n" path="res://textures/george/jumpscare/1one.png" id="42_0td1f"]
 [ext_resource type="Texture2D" uid="uid://clwh81hfrvfin" path="res://textures/george/jumpscare/2two.png" id="43_6rmj5"]
 [ext_resource type="Texture2D" uid="uid://q6ldunpuilj1" path="res://textures/george/jumpscare/3three.png" id="44_3igeq"]
@@ -184,13 +184,13 @@ animations = [{
 "texture": ExtResource("13_jktts")
 }, {
 "duration": 1.0,
-"texture": ExtResource("32_5vds2")
+"texture": ExtResource("33_5qg4s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("31_csuqh")
+"texture": ExtResource("34_5qg4s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("30_rqlqf")
+"texture": ExtResource("35_rqlqf")
 }],
 "loop": false,
 "name": &"default",
@@ -700,8 +700,8 @@ volume_db = -2.96
 [node name="Siren" type="AnimatedSprite2D" parent="." unique_id=56892823]
 process_mode = 3
 z_index = 1
-position = Vector2(20, 3.9999847)
-scale = Vector2(0.6536459, 0.6657408)
+position = Vector2(-1, 2.3841858e-07)
+scale = Vector2(0.6645834, 0.6694445)
 sprite_frames = SubResource("SpriteFrames_dehg8")
 centered = false
 script = ExtResource("78_b1xpf")
