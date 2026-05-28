@@ -115,8 +115,14 @@ func checkJumpscare() -> void:
 		print("Spėjai uždaryti! Sirena bėga atgal.")
 		var startFrames = [0, 1]
 		var randomFrame = startFrames[randi() % startFrames.size()]
-		pathIndex = randomFrame - 1
-		currentRoom = Room.CAM2
+		pathIndex = randomFrame
+		$".".frame = path[pathIndex]
+		
+		if $".".frame == 0:
+			currentRoom = Room.CAM2
+		else:
+			currentRoom = Room.CAM3
+			
 		updateVisibility(get_node("../camera").currentCam)
 		updateVisibility(currentRoom)
 		return # Important: This exits the function so the code below doesn't run

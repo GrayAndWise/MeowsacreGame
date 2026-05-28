@@ -16,13 +16,13 @@ func _ready() -> void:
 	$GameTimer.start()
 
 func _on_tick() -> void:
-	time_seconds += 1
+	time_seconds += 4
 	
-	var drain = 0.125
+	var drain = 0.25
 	if label.cameras_open: drain += 0.2
-	if george.doorOpen: drain += 0.5
+	if george.doorOpen: drain += 0.75
 	if george.lightOn: drain += 0.3
-	if siren.ventOpen: drain += 0.5
+	if siren.ventOpen: drain += 0.75
 	power = max(power - drain, 0.0)
 	
 	time_label.text = get_time_string()
@@ -31,7 +31,7 @@ func _on_tick() -> void:
 	
 	if power<=0:
 		george.force_toggle_door()
-	if time_seconds==360:
+	if time_seconds>=360:
 		george.win()
 
 
