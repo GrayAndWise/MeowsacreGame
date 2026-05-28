@@ -78,6 +78,8 @@
 [ext_resource type="Texture2D" uid="uid://cgdvkyhsvgijw" path="res://textures/siren/walkiesAroundOffice/33f22817-0c91-4f51-8405-08766af1715c-2.png" id="76_csuqh"]
 [ext_resource type="Texture2D" uid="uid://cshujhke2kdqf" path="res://textures/siren/walkiesAroundOffice/dccf8abe-8f9a-4f14-98a0-46f5d336ab6b.png" id="77_5vds2"]
 [ext_resource type="Script" uid="uid://bv0x0r3kckyb" path="res://Siren.gd" id="78_b1xpf"]
+[ext_resource type="AudioStream" uid="uid://wpmmlbjj5p8s" path="res://audio/sirenChomp.wav" id="79_csuqh"]
+[ext_resource type="Texture2D" uid="uid://bin6x6mnt5wwl" path="res://audio/ee2dc245-533f-4169-98e6-80f8d3df6c47.png" id="80_5vds2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wruqr"]
 animations = [{
@@ -432,10 +434,30 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("77_5vds2")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b1xpf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 10.0,
+"texture": ExtResource("80_5vds2")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 3.0
 }]
 
 [node name="Office" type="Node2D" unique_id=2096332971]
@@ -686,12 +708,6 @@ scale = Vector2(0.7872033, 0.80792195)
 sprite_frames = SubResource("SpriteFrames_b6li7")
 frame = 1
 
-[node name="TBA2" type="AnimatedSprite2D" parent="." unique_id=80077738]
-visible = false
-
-[node name="TBA3" type="AnimatedSprite2D" parent="." unique_id=934631238]
-visible = false
-
 [node name="staticSound" type="AudioStreamPlayer2D" parent="." unique_id=1396119602]
 process_mode = 3
 stream = ExtResource("57_6rmj5")
@@ -708,3 +724,14 @@ script = ExtResource("78_b1xpf")
 
 [node name="sirenTimer" type="Timer" parent="Siren" unique_id=1048883110]
 wait_time = 4.0
+
+[node name="jumpscaresound" type="AudioStreamPlayer2D" parent="Siren" unique_id=239668703]
+process_mode = 3
+stream = ExtResource("79_csuqh")
+
+[node name="jumpscare" type="AnimatedSprite2D" parent="Siren" unique_id=1542586427]
+z_index = 3
+position = Vector2(725.2664, 536.2655)
+sprite_frames = SubResource("SpriteFrames_b1xpf")
+frame = 2
+frame_progress = 1.0

@@ -4,7 +4,7 @@ extends AnimatedSprite2D
 
 enum Room { CAM2, CAM4, CAM5 }
 var currentRoom : Room = Room.CAM2
-
+var jumpscaring= false
 var aiLevel : int = 10
 var pathIndex : int = 0
 
@@ -97,3 +97,35 @@ func toggleVent() -> void:
 			$"../office/ventButton".texture.current_frame = 1 # Mygtukas pradeda šviesti
 		ventOpen = true
 		print("Ventiliacija uždaryta!")
+
+
+func checkJumpscare() -> void:
+	if jumpscaring:
+		return
+	
+	await get_tree().create_timer(randf_range(0.7, 1.5)).timeout
+	
+	if !ventOpen:
+		print("Užblokuota! Durys uždarytos. Kačiukas bėga atgal į pradžią.")
+		var startFrames = [1, 2, 3]
+		var randomFrame = startFrames[randi() % startFrames.size()]
+		pathIndex = randomFrame - 1
+		currentRoom = Room.CAM2
+		
+
+		
+	await get_tree().create_timer(randf_range(0.7, 1.5)).timeout
+	if !ventOpen:
+		print("Spėjai uždaryti! Kačiukas bėga atgal.")
+		var startFrames = [1, 2, 3]
+		var randomFrame = startFrames[randi() % startFrames.size()]
+		pathIndex = randomFrame - 1
+		currentRoom = Room.CAM2
+		updateVisibility(get_node("../camera").currentCam)
+	
+	jumpscaring = true
+	get_node("../CanvasLayer/Label").force_close_cameras()
+	$".".frame = 0
+	$jumpscare.play()
+	$jumpscaresound.play()
+	$"../Label".power-10
