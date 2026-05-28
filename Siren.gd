@@ -9,7 +9,8 @@ var aiLevel : int = 10
 var pathIndex : int = 0
 
 # --- Ventiliacijos kintamieji (Nukopijuota nuo George durų) ---
-var ventOpen = false
+var ventOpen = true
+
 
 # Tikrieji kadrai, kuriuos naudoja Sirena judėjimui fone
 var path = [0, 1, 2, 3]
@@ -21,6 +22,7 @@ func _ready() -> void:
 	$".".frame = 0
 	currentRoom = Room.CAM2
 	updateVisibility(get_node("../camera").currentCam)
+	$"../office/ventDoor".play()
 	
 	# Žaidimo pradžioje prijungiame Ventiliacijos mygtuką prie šio skripto
 	if has_node("../ventButton"):
@@ -54,6 +56,11 @@ func tryMove() -> void:
 		if label.cameras_open:
 			$"../camera/AnimatedSprite2D".play()
 			$"../camera/AudioStreamPlayer2D".play()
+			
+		if(currentRoom==Room.CAM4):
+			checkJumpscare()
+			print("bando gasdinti")
+			print(ventOpen)
 			
 		print("Sirena katytė pajudėjo! Kambarys: ", Room.keys()[currentRoom], " Kadras: ", $".".frame)
 		
@@ -102,30 +109,23 @@ func toggleVent() -> void:
 func checkJumpscare() -> void:
 	if jumpscaring:
 		return
-	
 	await get_tree().create_timer(randf_range(0.7, 1.5)).timeout
-	
-	if !ventOpen:
-		print("Užblokuota! Durys uždarytos. Kačiukas bėga atgal į pradžią.")
-		var startFrames = [1, 2, 3]
-		var randomFrame = startFrames[randi() % startFrames.size()]
-		pathIndex = randomFrame - 1
-		currentRoom = Room.CAM2
-		
-
-		
-	await get_tree().create_timer(randf_range(0.7, 1.5)).timeout
-	if !ventOpen:
-		print("Spėjai uždaryti! Kačiukas bėga atgal.")
-		var startFrames = [1, 2, 3]
+# RE-CHECK: If the vent is closed now, stop the process
+	if ventOpen:
+		print("Spėjai uždaryti! Sirena bėga atgal.")
+		var startFrames = [0, 1]
 		var randomFrame = startFrames[randi() % startFrames.size()]
 		pathIndex = randomFrame - 1
 		currentRoom = Room.CAM2
 		updateVisibility(get_node("../camera").currentCam)
+		updateVisibility(currentRoom)
+		return # Important: This exits the function so the code below doesn't run
 	
+	# If we reached here, the vent is still open
 	jumpscaring = true
 	get_node("../CanvasLayer/Label").force_close_cameras()
 	$".".frame = 0
 	$jumpscare.play()
 	$jumpscaresound.play()
-	$"../Label".power-10
+	# Note: Ensure this refers to the correct node/variable path
+	$"../Label".power -= 10

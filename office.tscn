@@ -504,8 +504,6 @@ centered = false
 position = Vector2(185.90709, 829.08545)
 scale = Vector2(1.141494, 1.045482)
 sprite_frames = SubResource("SpriteFrames_m6qcb")
-frame = 2
-frame_progress = 1.0
 
 [node name="door" type="AnimatedSprite2D" parent="." unique_id=1224460494]
 z_index = 1

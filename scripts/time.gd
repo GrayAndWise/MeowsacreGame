@@ -7,6 +7,7 @@ var power: float = 100.0
 @onready var george = $"../George"  # up to Office, then George
 @onready var time_label = $TimeLabel  # adjust path
 @onready var power_label = $PowerLabel  # adjust path
+@onready var siren = $"../Siren"  # adjust path
 
 
 func _ready() -> void:
@@ -20,10 +21,13 @@ func _on_tick() -> void:
 	var drain = 0.125
 	if label.cameras_open: drain += 0.2
 	if george.doorOpen: drain += 0.5
+	if george.lightOn: drain += 0.3
+	if siren.ventOpen: drain += 0.5
 	power = max(power - drain, 0.0)
 	
 	time_label.text = get_time_string()
 	power_label.text = "Power: " + str(snappedf(power, 0.1)) + "%"
+	print(drain, power)
 	
 	if power<=0:
 		george.force_toggle_door()
