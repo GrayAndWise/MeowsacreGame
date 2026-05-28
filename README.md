@@ -2,7 +2,7 @@
 a cute but scary game about kitties
 Inspired by FNAF type games.
 
-## 🚀 Projekto Statusas: Done
+## 🚀 Projekto Statusas: in progress
 Šis žaidimas yra sukurtas Programavimo Inžinerijos projektui.
 
 ## 🛠️ Funkcijos (Features)
